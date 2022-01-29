@@ -11,7 +11,6 @@ import WeatherApp from './routes/WeatherApp';
 function App() {
   const [isOpen, setIsOpen] = useState<true | false>(false);
   const location = useLocation();
-  console.log(location);
 
   return (
     <div className="App">
