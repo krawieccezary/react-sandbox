@@ -11,6 +11,17 @@ export type TaskProps = {
   completed?: boolean,
 }
 
+const itemVariants = {
+  hidden: {
+    opacity: 0, 
+    y: -10
+  },
+  show: {
+    opacity: 1,
+    y: 0, 
+  }
+}
+
 const Task = ({ id, name, completed }: TaskProps) => {
   const dispatch = useAppDispatch();
   const [isEditedTask, setIsEditedTask] = useState(false);
@@ -31,9 +42,8 @@ const Task = ({ id, name, completed }: TaskProps) => {
 
   return (
     <motion.li  
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0, }}
-      transition={{ type: "spring", stiffness: 300 }}
+      variants={itemVariants}
+      transition={{ type: "spring", stiffness: 200 }}
       className="flex w-100 justify-between backdrop-blur-2xl bg-sky-800 rounded-md p-2 my-2 pl-4">
       {isEditedTask ? (
         <input className="bg-sky-900 text-white rounded-md px-2 -ml-2 grow mr-2" type="text" value={inputName} onChange={handleInputName}/>

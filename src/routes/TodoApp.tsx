@@ -7,14 +7,27 @@ import Task, { TaskProps } from '../components/TodoApp/Task';
 
 const containerVariants = {
   hidden: {
-    opacity: 0, 
-    y: '10%'
+    opacity: 0
   },
   visible: {
+    opacity: 1
+  }
+}
+
+const listContainerVariants = {
+  hidden: {
+    opacity: 0, 
+    y: -10
+  },
+  show: {
     opacity: 1, 
     y: 0, 
-    transition: { duration: 1}
+    transition: { 
+      staggerChildren: .1,
+      duration: .2
+    }
   }
+
 }
 
 const TodoApp = () => {
@@ -47,7 +60,13 @@ const TodoApp = () => {
         <input className="text-black mt-5 mr-2 p-2 rounded grow" type="text" value={task} onChange={handleInput}/>
         <button className="bg-blue-500 hover:bg-blue-600 transition font-semibold py-2 px-5 rounded" type="submit">Add task</button>
       </form>
-      <ul>{tasksList}</ul>
+      <motion.ul
+        variants={listContainerVariants}
+        initial="hidden"
+        animate="show"
+      >
+        {tasksList}
+      </motion.ul>
     </motion.div>
   )
 }
