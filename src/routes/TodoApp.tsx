@@ -40,10 +40,11 @@ const TodoApp = () => {
       initial="hidden"
       animate="visible"
       exit="hidden"
+      className="w-full"
     >
       <h1 className="section-header">Todo App</h1> 
-      <form onSubmit={handleSubmit} className="d-flex">
-        <input className="text-black mt-5 mr-2 p-2 rounded" type="text" value={task} onChange={handleInput}/>
+      <form onSubmit={handleSubmit} className="flex items-end">
+        <input className="text-black mt-5 mr-2 p-2 rounded grow" type="text" value={task} onChange={handleInput}/>
         <button className="bg-blue-500 hover:bg-blue-600 transition font-semibold py-2 px-5 rounded" type="submit">Add task</button>
       </form>
       <ul>{tasksList}</ul>

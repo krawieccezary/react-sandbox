@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <MenuBurger setIsOpen={setIsOpen} isOpen={isOpen} />
       <MenuModal isOpen={isOpen} setIsOpen={setIsOpen}/>
-      <main className="flex justify-center text-white pt-10">
+      <main className="flex justify-center text-white w-3/4 mx-auto pt-20">
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
             <Route path="/" element={<Home />} />

@@ -34,13 +34,12 @@ const Task = ({ id, name, completed }: TaskProps) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0, }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="flex w-100 justify-between backdrop-blur-2xl bg-sky-800 rounded-md p-2 my-1">
+      className="flex w-100 justify-between backdrop-blur-2xl bg-sky-800 rounded-md p-2 my-2 pl-4">
       {isEditedTask ? (
-        <input className="bg-sky-900 text-white rounded-md px-2" type="text" value={inputName} onChange={handleInputName}/>
+        <input className="bg-sky-900 text-white rounded-md px-2 -ml-2 grow mr-2" type="text" value={inputName} onChange={handleInputName}/>
       ) : (
         <span>{name}</span>
       )}
-      {completed && 'completed'}
       <div>
         <button className="mx-1" onClick={() => handleCheckTask(id)}><AiOutlineCheckCircle></AiOutlineCheckCircle></button>
         <button className="mx-1" onClick={!isEditedTask ? handleEditingTask : () => handleEditTask(id)}><AiFillEdit></AiFillEdit></button>
