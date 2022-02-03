@@ -4,7 +4,6 @@ import { AnimatePresence } from 'framer-motion';
 
 import MenuModal from './components/MenuModal';
 import MenuBurger from './components/MenuBurger';
-import Home from './routes/Home';
 import TodoApp from './routes/TodoApp';
 import WeatherApp from './routes/WeatherApp';
 
@@ -19,7 +18,6 @@ function App() {
       <main className="flex justify-center text-white w-3/4 mx-auto pt-20">
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
-            <Route path="/" element={<Home />} />
             <Route path="todo-app" element={<TodoApp />} />
             <Route path="weather-app" element={<WeatherApp />} />
           </Routes>
