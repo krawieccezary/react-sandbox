@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { addTask } from '../slices/todoSlices';
 import Task, { TaskProps } from '../components/TodoApp/Task';
+import Button from '../components/Button';
 
 
 const containerVariants = {
@@ -58,7 +59,7 @@ const TodoApp = () => {
       <h1 className="section-header">Todo App</h1> 
       <form onSubmit={handleSubmit} className="flex items-end">
         <input className="text-black mt-5 mr-2 p-2 rounded grow" type="text" value={task} onChange={handleInput}/>
-        <button className="bg-blue-500 hover:bg-blue-600 transition font-semibold py-2 px-5 rounded" type="submit">Add task</button>
+        <Button extraStyles="bg-blue-500 hover:bg-blue-600" type="submit">Add task</Button>
       </form>
       <motion.ul
         variants={listContainerVariants}
@@ -66,6 +67,7 @@ const TodoApp = () => {
         animate="show"
       >
         {tasksList}
+      {tasksList.length ? <Button type="button" extraStyles="bg-red-700 hover:bg-red-800 my-2 mx-auto block">Remove All</Button> : null}
       </motion.ul>
     </motion.div>
   )
