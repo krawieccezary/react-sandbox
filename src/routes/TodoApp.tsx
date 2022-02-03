@@ -53,7 +53,7 @@ const TodoApp = () => {
       initial="hidden"
       animate="visible"
       exit="hidden"
-      className="w-full"
+      className="w-full max-w-2xl"
     >
       <h1 className="section-header">Todo App</h1> 
       <form onSubmit={handleSubmit} className="flex items-end">
