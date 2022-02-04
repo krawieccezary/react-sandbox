@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
 import { motion } from 'framer-motion';
 import { MdDelete } from 'react-icons/md';
 import { AiOutlineCheckCircle, AiFillEdit } from 'react-icons/ai';
@@ -38,6 +38,11 @@ const Task = ({ id, name, completed }: TaskProps) => {
 
   const handleEditingTask = () => setIsEditedTask(true);
 
+  const handleKeyPress = (e: KeyboardEvent): void => {
+    const id = parseInt((e.target as HTMLInputElement).dataset.id!);
+    if(e.charCode === 13) handleEditTask(id);
+  }
+
   const handleInputName = (e: ChangeEvent<HTMLInputElement>) => setInputName(e.target.value);
 
   return (
@@ -46,7 +51,7 @@ const Task = ({ id, name, completed }: TaskProps) => {
       transition={{ type: "spring", stiffness: 200 }}
       className="flex w-100 justify-between backdrop-blur-2xl bg-sky-800 rounded-md p-2 my-2 pl-4">
       {isEditedTask ? (
-        <input className="bg-sky-900 text-white rounded-md px-2 -ml-2 grow mr-2" type="text" value={inputName} onChange={handleInputName}/>
+        <input className="bg-sky-900 text-white rounded-md px-2 -ml-2 grow mr-2" type="text" value={inputName} onChange={handleInputName} data-id={id} onKeyPress={handleKeyPress}/>
       ) : (
         <span>{name}</span>
       )}
