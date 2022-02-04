@@ -28,11 +28,14 @@ export const todoSlice = createSlice({
     editTask: (state, action: PayloadAction<TaskProps>) => {
       const index = state.tasks.findIndex(task => task.id === action.payload.id);
       state.tasks[index].name = action.payload.name;
-    }
+    },
+    removeAllTasks: (state) => {
+      state.tasks = [];
+    },
   },
 })
 
-export const { addTask, removeTask, checkTask, editTask } = todoSlice.actions;
+export const { addTask, removeTask, checkTask, editTask, removeAllTasks } = todoSlice.actions;
 
 export const tasks = (state: RootState) => state.tasks;
 

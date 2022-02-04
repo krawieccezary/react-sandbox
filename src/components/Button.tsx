@@ -1,14 +1,16 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, MouseEventHandler } from 'react';
 
 type ButtonProps = { 
   extraStyles: String,
-  type: 'button' | 'submit' | 'reset'
+  type: 'button' | 'submit' | 'reset',
+  click?: MouseEventHandler,
 }
 
-const Button: FunctionComponent<ButtonProps> = ({ extraStyles, type, children }) => (
+const Button: FunctionComponent<ButtonProps> = ({ extraStyles, type, children, click }) => (
   <button 
     className={`transition font-semibold py-2 px-5 rounded ${extraStyles}`} 
     type={type}
+    onClick={click}
   >
     {children}
   </button>

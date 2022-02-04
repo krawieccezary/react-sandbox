@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
-import { addTask } from '../slices/todoSlices';
+import { addTask, removeAllTasks } from '../slices/todoSlices';
 import Task, { TaskProps } from '../components/TodoApp/Task';
 import Button from '../components/Button';
 
@@ -46,6 +46,8 @@ const TodoApp = () => {
     }
   };
 
+  const handleRemoveAllTasks = () => dispatch(removeAllTasks());
+
   const tasksList = state.tasks.map((task: TaskProps) => <Task key={task.id} {...task} />)
 
   return (
@@ -67,7 +69,7 @@ const TodoApp = () => {
         animate="show"
       >
         {tasksList}
-      {tasksList.length ? <Button type="button" extraStyles="bg-red-700 hover:bg-red-800 my-2 mx-auto block">Remove All</Button> : null}
+      {tasksList.length ? <Button type="button" click={handleRemoveAllTasks} extraStyles="bg-red-700 hover:bg-red-800 my-4 mx-auto block">Remove All</Button> : null}
       </motion.ul>
     </motion.div>
   )
