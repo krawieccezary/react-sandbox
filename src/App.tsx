@@ -18,7 +18,7 @@ function App() {
       <main className="flex justify-center text-white w-3/4 mx-auto pt-20">
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
-            <Route path="todo-app" element={<TodoApp />} />
+            <Route path="/" element={<TodoApp />} />
             <Route path="weather-app" element={<WeatherApp />} />
           </Routes>
         </AnimatePresence>

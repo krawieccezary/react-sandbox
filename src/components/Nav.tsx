@@ -13,7 +13,7 @@ const Nav:FunctionComponent<NavProps> = ({ setIsOpen, isOpen }) => (
     animate={{ x: 0, opacity: 1 }}
     transition={{ delay: .1, duration: 1 }}
   >
-    <NavLink {...{setIsOpen, isOpen}} to="/todo-app">Todo App</NavLink>
+    <NavLink {...{setIsOpen, isOpen}} to="/">Todo App</NavLink>
     <NavLink {...{setIsOpen, isOpen}} to="/weather-app">Weather App</NavLink>
   </motion.nav>
 )
