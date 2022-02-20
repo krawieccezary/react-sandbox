@@ -48,7 +48,7 @@ const TodoApp = () => {
 
   const handleRemoveAllTasks = () => dispatch(removeAllTasks());
 
-  const tasksList = state.tasks.map((task: TaskProps) => <Task key={task.id} {...task} />)
+  const tasksList = state.tasks?.map((task: TaskProps) => <Task key={task.id} {...task} />)
 
   return (
     <motion.div
@@ -69,7 +69,7 @@ const TodoApp = () => {
         animate="show"
       >
         {tasksList}
-      {tasksList.length ? <Button type="button" click={handleRemoveAllTasks} extraStyles="bg-red-700 hover:bg-red-800 my-4 mx-auto block">Remove All</Button> : null}
+      {tasksList?.length ? <Button type="button" click={handleRemoveAllTasks} extraStyles="bg-red-700 hover:bg-red-800 my-4 mx-auto block">Remove All</Button> : null}
       </motion.ul>
     </motion.div>
   )
