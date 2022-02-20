@@ -49,7 +49,7 @@ const Task = ({ id, name, completed }: TaskProps) => {
     <motion.li  
       variants={itemVariants}
       transition={{ type: "spring", stiffness: 200 }}
-      className="flex w-100 justify-between backdrop-blur-2xl bg-sky-800 rounded-md p-2 my-2 pl-4">
+      className={`flex w-100 justify-between backdrop-blur-2xl rounded-md p-2 my-2 pl-4 ${completed ? 'bg-green-700' : 'bg-sky-800'}`}>
       {isEditedTask ? (
         <input className="bg-sky-900 text-white rounded-md px-2 -ml-2 grow mr-2" type="text" value={inputName} onChange={handleInputName} data-id={id} onKeyPress={handleKeyPress}/>
       ) : (
