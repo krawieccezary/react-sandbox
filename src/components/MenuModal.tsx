@@ -18,6 +18,7 @@ const MenuModal: FunctionComponent<MenuModalProps> = ({ isOpen, setIsOpen }) => 
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: '100%', opacity: 0 }}
         transition={{ duration: .3 }}
+        aria-label="ModalMenu"
       >
         <Nav {...{isOpen, setIsOpen}} />
       </motion.div>}

@@ -1,0 +1,10 @@
+{
+  "testing-library/no-debugging-utils": [
+    "error",
+    {
+      "utilsToCheckFor": {
+        "debug": false,
+      }
+    }
+  ]
+}
