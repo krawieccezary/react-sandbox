@@ -28,8 +28,25 @@ const listContainerVariants = {
       duration: .2
     }
   }
-
 }
+
+const removeAllButtonVariants = {
+  hidden: {
+    opacity: 0, 
+    y: -20,
+  },
+  visible: {
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      type: "spring",
+      duration: 1,
+      delay: .3,
+      stiffness: 300
+    }
+  }
+}
+
 
 const TodoApp = () => {
   const [task, setTask] = useState('');
@@ -69,7 +86,14 @@ const TodoApp = () => {
         animate="show"
       >
         {tasksList}
-      {tasksList?.length ? <Button type="button" click={handleRemoveAllTasks} extraStyles="bg-red-700 hover:bg-red-800 my-4 mx-auto block">Remove All</Button> : null}
+      {tasksList?.length ? 
+        <motion.div
+          variants={removeAllButtonVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <Button type="button" click={handleRemoveAllTasks} extraStyles="bg-red-700 hover:bg-red-800 my-4 mx-auto block">Remove All</Button>
+        </motion.div> : null}
       </motion.ul>
     </motion.div>
   )
